@@ -5,7 +5,7 @@ Fortify의 Data Flow 데이터를 이용하여 약점 군집화하기
 Fortify 분석 결과(약점)가 실제 공격이 가능한지(취약점) 수작업으로 구분/분석하는 업무는 전체 코드를 검토하면 많은 시간이 소요되어, 취약한 코드의 Data flow 유사성(아래 그림의 Analysis Trace 내용)을 참고하여 취약 여부를 판단하곤 한다. (servlet filter에 보안필터가 적용되어 있어 검토할 필요없이 양호하거나, 코드로직 내부/외부 뷰 페이지에 커스텀 보안필터가 있을 경우가 있어 전체 코드를 보아야 하는 경우가 예외적으로 존재한다.)
 사람의 판단에 의해 Data Flow의 유사성을 구분하는 것이 아니라 통계기법(kmeans)를 이용하여 기계적으로 구분하는 방법을 적용해보았다.
 # Fortify의 분석 화면과 Data Flow 데이터 샘플
-![Fortify SSC 분석 화면](./img/fortify_ssc.png | width=100)
+![Fortify SSC 분석 화면](./img/fortify_ssc.png)
 TODO: 데이터 추가 필요
 # Data Flow 데이터 추출
 [Fortify SSC의 API](https://github.com/fortify/ssc-restapi-client)를 이용하면 Fortify의 Data Flow 데이터를 추출할 수 있으며, 취약점 유형 중 XSS를 대상으로 테스트하였다.
