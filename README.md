@@ -21,14 +21,14 @@ Fortify에 의해 발견된 약점 중 약 1/3의 수를 K값으로 하면 최�
 사람의 구분이 잘못 되었던 데이터(앞과 뒤 내용은 동일하나 분석 내용이 길어...)와 사람의 의도와 다르게 기계가 같다고 구분한 데이터를 [테스트 데이터](./data/test.xlsx)로 만들었고, 분석하려는 프로젝트의 데이터에 검증용으로 추가하는 코드를 작성하였다.
 ![사람의 분류가 잘못 되었던 데이터](./img/misclustering_data_by_hand.png)
 ![사람의 의도와 다르게 기계가 같다고 구분](./img/misclustering_data_by_hand.png)
-
 # 한계점
 위와 같은 방식으로 업무를 진행하면 아래와 같은 경우에서 오탐 케이스가 발생할 수 있다.
 - Data Flow 분석만으로는 취약하나,악성코드가 실행 불가한 response type(json 등)이라 xss에 안전하다고 판단할 경우 (fortify 분석 기능으로 제거 불가능하다.)
 - Fortify가 인지하지 못하는 커스텀 보안필터를 사용 (fortify option에 해당 보안필터를 추가하면 된다.)
 실제 업무를 효율화하기 위해서는 kmeans 외에 다양한 취약점 종류에 적용 가능한 방법이 필요하다.
+사람의 경험이 아닌 최적의 k값을 결정하는 방법이 필요하다.
 # 관련 연구
-[joern doc](https://fabs.codeminers.org/papers/2011-woot.pdf), [joern code](https://github.com/octopus-platform/joern-tools/blob/master/tools/ml/joern-knn), [joern video](https://www.youtube.com/watch?v=Uy2FrUmO-2E) : 각 함수에서 사용한 API Symbol(Topic)의 사용 패턴을 분석하고, 확인된 취약점과 근거리의 함수를 취약점 후보로 분석함
+[joern doc](https://fabs.codeminers.org/papers/2011-woot.pdf), [joern code](https://github.com/octopus-platform/joern-tools/blob/master/tools/ml/joern-knn), [joern video](https://www.youtube.com/watch?v=Uy2FrUmO-2E) : 각 함수에서 사용한 API Symbol(Topic)의 사용 패턴을 분석하고, 확인된 취약점과 근거리의 함수를 취약점 후보로 분석함 (knn 알고리즘 사용)
 # 기타
 knn 알고리즘 설명 : https://kkokkilkon.tistory.com/14,  https://tariat.tistory.com/37
 kmeans 알고리즘 설명 : https://lovit.github.io/nlp/machine%20learning/2018/03/21/kmeans_cluster_labeling/
