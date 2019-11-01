@@ -1,9 +1,13 @@
-Fortify의 Data Flow 데이터를 이용하여 약점 군집화하기
+Fortify의 Data Flow 데이터를 이용하여 군집화하기
 ========
-Fortify를 이용하여 취약점을 분석하면 다수의 발견사항(미탐 포함)으로 인해 많은 시간이 소요된다. 수작업 분석 과정 중 일부라도 자동화할 수 있다면 해당 시간은 단축될 수 있다. Data Flow 유사성 판단을 자동화하여 기존 수작업 분석 시간을 1/3로 단축할 수 있는 방법을 찾아보았다.
+[Fortify](https://www.microfocus.com/en-us/solutions/application-security)를 이용하여 취약점을 분석하면 다수의 발견사항(오탐 포함)으로 인해 많은 시간이 소요된다. 수작업 분석 과정 중 일부라도 자동화할 수 있다면 해당 시간은 단축될 수 있다. Data Flow 유사성 판단을 자동화하여 기존 수작업 분석 시간을 1/3로 단축할 수 있는 방법을 찾아보았다.
 # Fortify에서 수작업 분석 방법
 Fortify 분석 결과를 수작업 분석 시 전체 코드를 검토하면 많은 시간이 소요되어, Data flow 유사성을 참고하여 취약 여부를 판단하곤 한다.
 사람의 판단에 의해 Data Flow의 유사성을 구분하는 것이 아니라 통계기법(kmeans)를 이용하여 기계적으로 구분하는 방법을 적용해보았다.
+![Fortify SSC 분석 화면](./img/fortify_ssc.png)
+# Fortify의 분석 화면과 Data Flow 데이터 구조
+TODO: 데이터 추가 필요
+
 # Data Flow 데이터 추출
 [Fortify SSC의 API](https://github.com/fortify/ssc-restapi-client)를 이용하면 Fortify의 Data Flow 데이터를 추출할 수 있으며, 취약점 유형 중 XSS를 대상으로 테스트하였다.
 [Fortify의 TraceNode Data](https://github.com/fortify/ssc-restapi-client/blob/master/docs/TraceNodeDto.md) 중에서  데이터 중 nodeType, text만 추출하여 아래와 같이 데이터를 구성한다. 2개의 프로젝트에서 XSS와 관련된 Data flow만 추출(파일 [fortify_ml.xlsx](./data/fortify_ml.xlsx), [fortify_ml2.xlsx](./data/fortify_ml2.xlsx))하였고, 수작업으로 확인한 취약여부 데이터를 추가하였다. (file경로와 이름은 군집화하는 것에 도움이 안되는 것으로 경험 상 판단했다.)
