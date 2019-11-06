@@ -34,6 +34,8 @@ Fortify에 의해 발견된 약점 중 약 1/3의 수를 K값으로 하면 최�
 - Fortify가 인지하지 못하는 커스텀 보안필터를 사용 (fortify option에 해당 보안필터를 추가하면 된다.)
 실제 업무를 효율화하기 위해서는 kmeans 외에 다양한 취약점 종류에 적용 가능한 방법이 필요하다.
 - Fortify 는 오탐율을 줄이기 위해 보수적인 탐지 룰(XSS Persistent의 경우 DB저장만으로도 리포팅하지 않고, 사용자 단으로의 Response 출력이 없을 경우 리포팅하지 않는 등)을 개발하기 때문에 Dataflow 분석에 의한 발견량은 적어 업무 경감의 의미가 퇴색될 수 있다. 
+- kmeans는 군집 번호가 계속 변경되기 때문에 별도의 Labeling 방법이 필요하다.
+- 이번 경우와 같이 사전지식(경험)을 통한 k값을 정해 편의성을 정하는 경우가 많으나, 최적의 k 값을 찾기 위한 [elbow curve 등 통계적인 검증](https://gentlej90.tistory.com/24)도 필요하다. 
 
 # 관련 연구
 [joern doc](https://fabs.codeminers.org/papers/2011-woot.pdf), [joern code](https://github.com/octopus-platform/joern-tools/blob/master/tools/ml/joern-knn), [joern video](https://www.youtube.com/watch?v=Uy2FrUmO-2E) : 각 함수에서 사용한 API Symbol(Topic)의 사용 패턴을 분석하고, 확인된 취약점과 근거리의 함수를 취약점 후보로 분석함 (knn 알고리즘 사용)

@@ -8,6 +8,9 @@ import math
 import pandas as pd
 import numpy as np
 import os
+from matplotlib import pyplot as plt
+from sklearn.metrics import silhouette_score
+
 
 base_dir = './data/'
 excel_file = 'fortify_ml.xlsx'
@@ -19,7 +22,30 @@ df_from_test=pd.read_excel(test_dir,sheet_name='Sheet1',header=0,names=['Fortify
 docs = df_from_test.append(df_from_excel)['Fortify_NodeType'].values
 
 k=math.ceil(len(docs)/2)
+"""
+# 최적의 k 값을 통계적으로 분석하기.. elbow curve 기울기 값이 1이하, Silhouette Coefficient 1과 가까운 수
+# 사전지식으로 최적의 k 값을 찾는 것보다 더 많은 군집을 요구하는 듯.
+distorsions = []
 
+for i in range(2,k):
+    kmeans = KMeans(n_clusters=i)
+    vectorizer = CountVectorizer()
+    X = vectorizer.fit_transform(docs)
+    X = normalize(X, norm='l2')
+    kmeans = KMeans(n_clusters=i).fit(X)
+    sil_coeff = silhouette_score(X,kmeans.labels_,metric='euclidean')
+    print("For n_clusters={}, The Silhouette Coefficient is {}".format(i, sil_coeff))
+
+    distorsions.append(kmeans.inertia_)
+
+fig = plt.figure()
+plt.plot(range(2,k),distorsions,marker='o')
+plt.grid(True)
+plt.ylabel('Distortion')
+plt.xlabel('k')
+plt.title('Elbow curve')
+plt.show()
+"""
 #find k
 for i in range(k,0,-1):
     # vectorizing
