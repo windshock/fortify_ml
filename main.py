@@ -34,12 +34,12 @@ for i in range(k,0,-1):
 
     # check test data
     # 사람의 의도와 다르게 기계가 같다고 구분한 데이터
-    if (kmeans.labels_[4] == kmeans.labels_[5]):
+    if (kmeans.labels_[2] == kmeans.labels_[3]):
         k=i+1
         kmeans = KMeans(n_clusters=k).fit(X)
         break
     # 사람의 분류가 잘못 되었던 데이터
-    if (kmeans.labels_[0] == kmeans.labels_[1]) & (kmeans.labels_[2] == kmeans.labels_[3]):
+    if (kmeans.labels_[0] == kmeans.labels_[1]):
         k=i
         break
 
