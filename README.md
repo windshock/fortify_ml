@@ -42,7 +42,7 @@ Fortify에 의해 발견된 약점 중 약 1/3의 수를 K값으로 하면 최�
 ![Summary of various approaches for handling of alarms](./img/approaches_for_handling_static_analysis_finding.png)
 
 # 관련 연구
-[Approaches for improving handling of static analysis findings](https://www.roguewave.com/sites/rw/files/resources/rw_improve_handling_sca_findings.pdf) : knock 제품에서 프로토타입으로 k-mean 알고리즘으로 약점 군집화 적용, 적절한 K 값을 찾기위한 적절한 방법이 기술되진 않음
+[Approaches for improving handling of static analysis findings](https://www.roguewave.com/sites/rw/files/resources/rw_improve_handling_sca_findings.pdf) : klocwork 제품에서 프로토타입으로 k-mean 알고리즘으로 약점 군집화 적용, 적절한 K 값을 찾기위한 적절한 방법이 기술되진 않음
 [Survey of Approaches for Handling Static Analysis Alarms](https://www.win.tue.nl/~aserebre/SCAM2016.pdf) : 정적분석 발견사항을 효율적으로 다룰 수 있는 법을 광범위하게 연구한 논문 
 [joern doc](https://fabs.codeminers.org/papers/2011-woot.pdf), [joern code](https://github.com/octopus-platform/joern-tools/blob/master/tools/ml/joern-knn), [joern video](https://www.youtube.com/watch?v=Uy2FrUmO-2E) : 각 함수에서 사용한 API Symbol(Topic)의 사용 패턴을 분석하고, 확인된 취약점과 근거리의 함수를 취약점 후보로 분석함 (knn 알고리즘 사용)
 
