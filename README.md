@@ -38,8 +38,14 @@ Fortify에 의해 발견된 약점 중 약 1/3의 수를 K값으로 하면 최�
 - 이번 경우와 같이 사전지식(경험)을 통한 k값을 정해 편의성을 정하는 경우가 많으나, 최적의 k 값을 찾기 위한 [elbow curve 등 통계적인 검증](https://gentlej90.tistory.com/24)도 필요하다.
     - [elbow method에서 J 변화가 대체로 부드러워](https://wikidocs.net/4694#elbow-method) 이 방식으로 K를 정하는 데에는 무리가 있었다.  
 - [문서를 백터화](https://datascienceschool.net/view-notebook/3e7aadbf88ed4f0d87a76f9ddc925d69/)할 때 NLP 혹은 tokenizer 수준으로 구분하지는 않는다. 
+- [Survey of Approaches for Handling Static Analysis Alarms](https://www.win.tue.nl/~aserebre/SCAM2016.pdf) 논문과 같이 군집화 외에 발견사항을 효율적으로 다룰 수 있는 다양한 방법의 적용도 필요 함
+![Summary of various approaches for handling of alarms](./img/approaches_for_handling_static_analysis_finding.png)
+
 # 관련 연구
+[Approaches for improving handling of static analysis findings](https://www.roguewave.com/sites/rw/files/resources/rw_improve_handling_sca_findings.pdf) : knock 제품에서 프로토타입으로 k-mean 알고리즘으로 약점 군집화 적용, 적절한 K 값을 찾기위한 적절한 방법이 기술되진 않음
+[Survey of Approaches for Handling Static Analysis Alarms](https://www.win.tue.nl/~aserebre/SCAM2016.pdf) : 정적분석 발견사항을 효율적으로 다룰 수 있는 법을 광범위하게 연구한 논문 
 [joern doc](https://fabs.codeminers.org/papers/2011-woot.pdf), [joern code](https://github.com/octopus-platform/joern-tools/blob/master/tools/ml/joern-knn), [joern video](https://www.youtube.com/watch?v=Uy2FrUmO-2E) : 각 함수에서 사용한 API Symbol(Topic)의 사용 패턴을 분석하고, 확인된 취약점과 근거리의 함수를 취약점 후보로 분석함 (knn 알고리즘 사용)
+
 # 기타
 knn 알고리즘 설명 : https://kkokkilkon.tistory.com/14,  https://tariat.tistory.com/37
 
